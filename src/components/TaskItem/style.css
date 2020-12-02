@@ -1,0 +1,96 @@
+.task-item {
+  width: 20%;
+  margin: auto;
+  border: 2px solid black;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgb(37, 40, 60);
+  color: rgb(150, 154, 174);
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+
+  .task-item {
+    width: 80%;
+  }
+}
+
+.task-desc {
+  padding-left: 10px;
+
+  display: flex;
+  align-items: center;
+}
+
+.done {
+  text-decoration: line-through;
+}
+
+.task-remove {
+  padding-right: 10px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 17px;
+
+  margin-right: 10px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: '';
+  height: 13px;
+  width: 13px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: rebeccapurple;
+}
+
+/* input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+} */
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(13px);
+  -ms-transform: translateX(13px);
+  transform: translateX(13px);
+}
+
+/* Rounded sliders */
+#round {
+  border-radius: 34px;
+}
+
+#round:before {
+  border-radius: 50%;
+}

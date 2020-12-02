@@ -7,6 +7,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+html {
+  background: rgb(22, 22, 32);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
