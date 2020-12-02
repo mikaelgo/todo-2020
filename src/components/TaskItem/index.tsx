@@ -15,18 +15,24 @@ interface TaskItemProps {
   isComplete: boolean;
   index: number;
 }
+const StyledContainer = styled.div<{ isDragging: boolean }>`
+  //   width: 20%;
+  //   margin: auto;
+  //   border: 2px solid black;
+  //   border-radius: 0.5rem;
+  //   display: flex;
+  //   justify-content: space-between;
+  //   align-items: center;
+  //   background: rgb(37, 40, 60);
+  //   color: rgb(150, 154, 174);
 
+  //   @media only screen and (max-width: 768px) {
+  //     width: 80%;
+  //   }
+`;
 const TaskItem = (props: TaskItemProps) => {
   const dispatch = useDispatch();
   const { desc, id, isComplete, index } = props;
-
-  const StyledContainer = styled.div<{ isDragging: boolean }>``;
-
-  // margin: 20px;
-  // height: 25px;
-  // background-color: white;
-  // border: 1px solid rgba(0, 0, 0, 0.3);
-  // border-radius: 1px;
 
   const handleRemove = (): void => {
     if (!id) return;

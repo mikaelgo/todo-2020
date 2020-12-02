@@ -51,13 +51,7 @@ export const todosSlice = createSlice({
       }
     },
     dragTodo: (state, { payload }: PayloadAction<{ todos: Todo[] }>) => {
-      console.log('ORIGINAL STATE', state);
-      state = payload.todos;
-      // const todoToToggle = state.find((todo) => todo.id === payload.id);
-
-      // if (todoToToggle) {
-      //   todoToToggle.isComplete = payload.isComplete;
-      // }
+      return (state = payload.todos);
     },
   },
 });

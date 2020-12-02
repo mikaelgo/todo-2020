@@ -15,21 +15,17 @@ function App() {
     if (!result.destination) {
       return;
     }
-    console.log('RESULTS', result);
+
     let sourceIdx = parseInt(result.source.index);
     let destIdx = parseInt(result.destination.index);
     let draggedLink = todos[sourceIdx];
-    console.log('DRAGGEDLINK', draggedLink);
+
     let newList = todos.slice();
     newList.splice(sourceIdx, 1);
     newList.splice(destIdx, 0, draggedLink);
 
     dispatch(dragTodoActionCreator({ todos: newList }));
-    todos = newList;
-    console.log('TODOS INSIDE onDragEnd', todos);
   };
-
-  console.log(todos);
 
   return (
     <div className='App'>

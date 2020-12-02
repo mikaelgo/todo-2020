@@ -9,29 +9,20 @@ import { Droppable } from 'react-beautiful-dnd';
 interface TodosProps {
   todos: Todo[];
 }
+const StyledContainer = styled.div``;
 
 const TaskList = (props: TodosProps) => {
   const { todos } = props;
 
-  console.log('TODOS', todos);
-
-  const StyledContainer = styled.div``;
-
-  //   background-color: #e0ffff;
-  //     padding: 15px;
-  //     width: 25%;
-
   return (
-    <div className='container'>
-      <div>
-        <h2>Task list</h2>
-        <ul style={{ padding: 'unset' }}>
-          <Droppable droppableId={'1'}>
-            {(provided) => (
-              <StyledContainer
-                ref={provided.innerRef}
-                {...provided.droppableProps}
-              >
+    // <div className='container'>
+    <Droppable droppableId={'1'}>
+      {(provided) => (
+        <StyledContainer ref={provided.innerRef} {...provided.droppableProps}>
+          <div>
+            <h2>Task list</h2>
+            <ul style={{ padding: 'unset' }}>
+              <div>
                 {todos.map((todo, i) => {
                   return (
                     <TaskItem
@@ -43,13 +34,17 @@ const TaskList = (props: TodosProps) => {
                     />
                   );
                 })}
-                {provided.placeholder}
-              </StyledContainer>
-            )}
-          </Droppable>
-        </ul>
-      </div>
-    </div>
+              </div>
+
+              {provided.placeholder}
+            </ul>
+
+            <p className='dnd-text'>Drag and drop to reorder list</p>
+          </div>
+          {/* </div>  */}
+        </StyledContainer>
+      )}
+    </Droppable>
   );
 };
 
