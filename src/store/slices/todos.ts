@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Todo } from '../../../../redux-toolkit-comparison/src/type.d';
-import { stringify, v1 as uuid } from 'uuid';
+import { v1 as uuid } from 'uuid';
 
 export const initialState: Todo[] = [
   {
@@ -50,6 +50,15 @@ export const todosSlice = createSlice({
         todoToToggle.isComplete = payload.isComplete;
       }
     },
+    dragTodo: (state, { payload }: PayloadAction<{ todos: Todo[] }>) => {
+      console.log('ORIGINAL STATE', state);
+      state = payload.todos;
+      // const todoToToggle = state.find((todo) => todo.id === payload.id);
+
+      // if (todoToToggle) {
+      //   todoToToggle.isComplete = payload.isComplete;
+      // }
+    },
   },
 });
 
@@ -57,6 +66,7 @@ export const {
   addTodo: addTodoActionCreator,
   removeTodo: removeTodoActionCreator,
   toggleTodo: toggleTodoActionCreator,
+  dragTodo: dragTodoActionCreator,
 } = todosSlice.actions;
 
 export default todosSlice.reducer;
